@@ -3,7 +3,6 @@ package com.sparta.memo.Controller;
 import com.sparta.memo.DTO.MemoRequestDto;
 import com.sparta.memo.DTO.MemoResponseDto;
 import com.sparta.memo.service.MemoService;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,8 +13,8 @@ public class MemoController {
     //jdbc Template 선언
     private final MemoService memoService;
     //Jdbc 생성자 선언‚‚
-    public MemoController(JdbcTemplate jdbcTemplate) {
-        this.memoService = new MemoService(jdbcTemplate);
+    public MemoController(MemoService memoService) {
+        this.memoService = memoService;
     }
 
     @PostMapping("/memos")
